@@ -34,7 +34,7 @@
 
     <application
         android:icon="@drawable/icon_app"
-        android:label="@string/app_name" >
+        android:label="@string/notes_app_name" >
         <activity
             android:name=".ui.NotesListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

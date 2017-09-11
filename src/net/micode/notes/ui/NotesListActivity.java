@@ -214,8 +214,9 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
         mBackgroundQueryHandler = new BackgroundQueryHandler(this.getContentResolver());
         mCurrentFolderId = Notes.ID_ROOT_FOLDER;
         mNotesListView = (ListView) findViewById(R.id.notes_list);
-        mNotesListView.addFooterView(LayoutInflater.from(this).inflate(R.layout.note_list_footer, null),
-                null, false);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view =inflater.inflate(R.layout.note_list_footer, null);
+        mNotesListView.addFooterView(view,null, false);
         mNotesListView.setOnItemClickListener(new OnListItemClickListener());
         mNotesListView.setOnItemLongClickListener(this);
         mNotesListAdapter = new NotesListAdapter(this);
@@ -366,7 +367,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
                     /**
                      * HACKME:When click the transparent part of "New Note" button, dispatch
                      * the event to the list view behind this button. The transparent part of
-                     * "New Note" button could be expressed by formula y=-0.12x+94（Unit:pixel）
+                     * "New Note" button could be expressed by formula y=-0.12x+94锛圲nit:pixel锛�
                      * and the line top of the button. The coordinate based on left of the "New
                      * Note" button. The 94 represents maximum height of the transparent part.
                      * Notice that, if the background of the button changes, the formula should
